@@ -48,7 +48,7 @@
                         Aviso! Essa ação não poderá ser desfeita, gostaria mesmo de deletar o usuário <strong>{{ $user->name }}</strong> ?
                     </div>
                     <div class="modal-footer">
-                        <form action="{{ route('user.destroy', ['user' => $user]) }}" method="post">
+                        <form action="{{ route('users.destroy', ['user' => $user]) }}" method="post">
                             @csrf
                             @method('DELETE')
                             <button class="btn btn-danger" type="submit">Deletar</button>

@@ -4,5 +4,6 @@
 @section('content')
 
 <h1>Login de usuário</h1>
+<hr>
 
 @endsection

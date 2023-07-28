@@ -12,7 +12,7 @@
     <div class="container">
         <div class="d-flex align-items-center justify-content-between">
             <h1 class="">Lista de usuários</h1>
-            <a href="{{ route('user.create') }}" class="btn btn-success">Criar novo usuário</a>
+            <a href="{{ route('users.create') }}" class="btn btn-success">Criar novo usuário</a>
         </div>
     </div>
 
@@ -44,12 +44,12 @@
                         <td>{{ date('d/m/Y H:i', strtotime($user->created_at)) }}</td>
                         <td>{{ date('d/m/Y H:i', strtotime($user->updated_at)) }}</td>
                         <td class="contaner d-flex justify-content-between">
-                            <form action="{{ route('user.show', ['user' => $user]) }}" method="post">
+                            <form action="{{ route('users.show', ['user' => $user]) }}" method="get">
                                 @csrf
                                 <button type="submit" class="btn btn-secondary" data-bs-toggle="modal"
                                     data-bs-target="#exampleModal">View</button>
                             </form>
-                            <form action="{{ route('user.edit', ['user' => $user]) }}" method="get">
+                            <form action="{{ route('users.edit', ['user' => $user]) }}" method="get">
                                 @csrf
                                 <button type="submit" class="btn btn-primary">Editar</button>
                             </form>

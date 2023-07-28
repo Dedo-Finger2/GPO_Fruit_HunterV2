@@ -7,7 +7,7 @@
 <hr>
 
 <div class="container align-items-center p-4 bg-body-secondary rounded col-4 justify-content-center">
-    <form action="{{ route('user.store') }}" method="POST">
+    <form action="{{ route('users.store') }}" method="POST">
         @csrf
         <h2 class="text-center">Registre-se</h2>
         <hr>

@@ -12,7 +12,7 @@
 <hr>
 
 <div class="container align-items-center p-4 bg-body-secondary rounded col-4 justify-content-center">
-    <form action="{{ route('user.update', ['user'=>$user]) }}" method="POST">
+    <form action="{{ route('users.update', ['user'=>$user]) }}" method="POST">
         @csrf
         @method('PUT')
         <h2 class="text-center">Edite suas creênciais</h2>

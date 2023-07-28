@@ -47,7 +47,7 @@ class UserController extends Controller
     {
         User::create($request->validated());
 
-        return redirect()->route('user.index')->with('mensagem', 'Usuário criado com sucesso!');
+        return redirect()->route('users.index')->with('mensagem', 'Usuário criado com sucesso!');
     }
 
     /**
@@ -74,7 +74,7 @@ class UserController extends Controller
         $updated = $user->update($request->validated());
 
         if ($updated) {
-            return redirect()->route('user.index')->with('mensagem', 'Usuário editado com sucesso!');
+            return redirect()->route('users.index')->with('mensagem', 'Usuário editado com sucesso!');
         }
     }
 
@@ -86,7 +86,7 @@ class UserController extends Controller
         $deleted = $user->delete();
 
         if ($deleted) {
-            return redirect()->route('user.index')->with('mensagem', 'Usuário deletado com sucesso!');
+            return redirect()->route('users.index')->with('mensagem', 'Usuário deletado com sucesso!');
         }
     }
 }

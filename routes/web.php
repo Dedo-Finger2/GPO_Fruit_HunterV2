@@ -24,28 +24,24 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
 // Usuário
-Route::get('/users', [UserController::class, 'index'])->name('user.index');
-Route::get('/users/create', [UserController::class, 'create'])->name('user.create');
-Route::post('/users', [UserController::class, 'store'])->name('user.store');
-Route::post('/users/{user}', [UserController::class, 'show'])->name('user.show');
-Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('user.edit');
-Route::put('/users/{user}', [UserController::class, 'update'])->name('user.update');
-Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('user.destroy');
-Route::get('/users/{user}/config', [UserController::class, 'config'])->name('user.config');
+Route::resource('users', UserController::class);
+Route::get('/users/{user}/config', [UserController::class, 'config'])->name('users.config');
+
+
 
 // Autenticação
 Route::get('/login', [LoginController::class, 'index'])->name('login.index');
 
 // Dia
-Route::get('/days', [DayController::class, 'index'])->name('day.index');
+Route::get('/days', [DayController::class, 'index'])->name('days.index');
 
 // Fruta
-Route::get('/fruits', [FruitController::class, 'index'])->name('fruit.index');
+Route::get('/fruits', [FruitController::class, 'index'])->name('fruits.index');
 
 
 // Raridade
-Route::get('/rarities', [RarityController::class, 'index'])->name('rarity.index');
+Route::get('/rarities', [RarityController::class, 'index'])->name('rarities.index');
 
 
 // Conta
-Route::get('/accounts', [AccountController::class, 'index'])->name('account.index');
+Route::get('/accounts', [AccountController::class, 'index'])->name('accounts.index');

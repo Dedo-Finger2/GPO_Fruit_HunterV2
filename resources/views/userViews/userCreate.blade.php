@@ -40,7 +40,7 @@
         </div>
         <div class="mb-3">
             <label for="Password" class="form-label">Senha</label>
-            <input type="text" class="form-control @error('password') is-invalid @enderror" id="Password" name="password" placeholder="Enter your password...">
+            <input type="password" class="form-control @error('password') is-invalid @enderror" id="Password" name="password" placeholder="Enter your password...">
             @error('password')
             <div class="invalid-feedback">
                 {{$message}}
@@ -49,7 +49,7 @@
         </div>
         <div class="mb-3">
             <label for="PasswordConfirm" class="form-label">Confirmar senha</label>
-            <input type="text" class="form-control @error('passwordConfirm') is-invalid @enderror" id="PasswordConfirm" name="passwordConfirm" placeholder="Confirm your password...">
+            <input type="password" class="form-control @error('passwordConfirm') is-invalid @enderror" id="PasswordConfirm" name="passwordConfirm" placeholder="Confirm your password...">
             @error('passwordConfirm')
             <div class="invalid-feedback">
                 {{$message}}

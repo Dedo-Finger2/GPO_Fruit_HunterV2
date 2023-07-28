@@ -21,16 +21,22 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Home
-Route::get('/', [HomeController::class, 'index'])->name('home.index');
+Route::get('/', [HomeController::class, 'index'])->name('home.index')->middleware('auth');
 
 // Usuário
-Route::resource('users', UserController::class);
-Route::get('/users/{user}/config', [UserController::class, 'config'])->name('users.config');
+Route::middleware(['auth'])->group(function () {
+    Route::resource('users', UserController::class)->except(['users.create']);
+});
+
+Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
+Route::get('/users/{user}/config', [UserController::class, 'config'])->name('users.config')->middleware('auth');
 
 
 
 // Autenticação
-Route::get('/login', [LoginController::class, 'index'])->name('login.index');
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login', [LoginController::class, 'store'])->name('login.store');
+Route::get('/logout', [LoginController::class, 'destroy'])->name('login.logout');
 
 // Dia
 Route::get('/days', [DayController::class, 'index'])->name('days.index');

@@ -15,7 +15,7 @@
 
 <body data-bs-theme="light">
     @include('navbar')
-
+    
     <div class="form-check form-switch mx-4 mt-3">
         <input class="form-check-input p-2" type="checkbox" role="switch" id="flexSwitchCheckChecked"
         onclick="myFunction()" /> Dark Theme

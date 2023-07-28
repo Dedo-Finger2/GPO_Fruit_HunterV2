@@ -36,7 +36,7 @@
                 </ul>
                 @guest
                 <div class="dropdown ms-auto">
-                    <a href="{{ route('login.index') }}" class="btn btn-success">Login</a>
+                    <a href="{{ route('login') }}" class="btn btn-success">Login</a>
                     <a href="{{ route('users.create') }}" class="btn btn-primary">Cadastrar</a>
                 </div>
                 @endguest
@@ -46,6 +46,7 @@
                             data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32"
                                 class="rounded-circle">
+                            {{ auth()->user()->name }}
                         </a>
                         <ul class="dropdown-menu text-small ms-auto">
                             <li><a class="dropdown-item" href="#">New project...</a></li>
@@ -54,7 +55,7 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">Sign out</a></li>
+                            <li><a class="dropdown-item" href="{{ route('login.logout') }}">Sign out</a></li>
                         </ul>
                     </div>
                 @endauth

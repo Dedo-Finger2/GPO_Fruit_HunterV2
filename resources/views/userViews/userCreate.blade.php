@@ -4,6 +4,7 @@
 @section('content')
 
 <h1>Cadastro de usuário</h1>
+<hr>
 
 <div class="container align-items-center p-4 bg-body-secondary rounded col-4 justify-content-center">
     <form action="{{ route('user.store') }}" method="POST">

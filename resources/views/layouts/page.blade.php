@@ -13,14 +13,16 @@
         integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous" />
 </head>
 
-<body data-bs-theme="dark">
+<body data-bs-theme="light">
     @yield('navbar')
-    <div class="form-check form-switch mx-4">
-        <input class="form-check-input p-2" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked
+    <div class="form-check form-switch mx-4 mt-3">
+        <input class="form-check-input p-2" type="checkbox" role="switch" id="flexSwitchCheckChecked"
         onclick="myFunction()" /> Dark Theme
     </div>
 
-    @yield('content')
+    <div class="container">
+        @yield('content')
+    </div>
 
     @yield('footer')
 

@@ -55,7 +55,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
+        dd($user);
     }
 
     /**
@@ -63,15 +63,19 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('userViews.userEdit', ['user'=>$user]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user)
+    public function update(StoreUpdateUserFormRequest $request, User $user)
     {
-        //
+        $updated = $user->update($request->validated());
+
+        if ($updated) {
+            return redirect()->route('user.index')->with('mensagem', 'Usuário editado com sucesso!');
+        }
     }
 
     /**

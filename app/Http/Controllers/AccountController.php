@@ -8,11 +8,14 @@ use Illuminate\Http\Request;
 class AccountController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Método responsável por retornar a tela de listagem de contas
+     * @return string|array - View de contas com um array de contas do banco de dados
      */
     public function index()
     {
-        //
+        $accounts = Account::all();
+
+        return view('accountViews.accounts', ['accounts' => $accounts]);
     }
 
     /**

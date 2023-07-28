@@ -8,11 +8,14 @@ use Illuminate\Http\Request;
 class FruitController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Método responsável por retornar a tela de listagem de frutas
+     * @return string|array - View de frutas com um array de frutas do banco de dados
      */
     public function index()
     {
-        //
+        $fruits = Fruit::all();
+
+        return view('fruitViews.fruits', ['fruits' => $fruits]);
     }
 
     /**

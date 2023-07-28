@@ -8,11 +8,14 @@ use Illuminate\Http\Request;
 class DayController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Método responsável por retornar a tela de listagem de dias
+     * @return string|array - View de dias com um array de dias do banco de dados
      */
     public function index()
     {
-        //
+        $days = Day::all();
+
+        return view('dayViews.days', ['days' => $days]);
     }
 
     /**

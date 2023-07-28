@@ -8,11 +8,14 @@ use Illuminate\Http\Request;
 class RarityController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Método responsável por retornar a tela de listagem de raridades
+     * @return string|array - View de raridades com um array de raridades do banco de dados
      */
     public function index()
     {
-        //
+        $rarities = Rarity::all();
+
+        return view('rarityViews.rarities', ['rarities' => $rarities]);
     }
 
     /**

@@ -55,7 +55,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        dd($user);
+        return view('userViews.userShow', ['user'=>$user]);
     }
 
     /**

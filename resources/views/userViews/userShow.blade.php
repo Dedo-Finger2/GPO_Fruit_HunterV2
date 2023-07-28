@@ -1,7 +1,8 @@
 @extends('layouts.page')
-@section('title', 'Home')
+@section('title', 'Show')
 
 @section('content')
-    <h1>Home</h1>
-    <hr>
+
+<h1>Detalhes do usuário</h1>
+
 @endsection

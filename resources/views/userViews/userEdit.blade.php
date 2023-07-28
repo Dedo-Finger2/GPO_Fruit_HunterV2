@@ -3,7 +3,13 @@
 
 @section('content')
 
-<h1>Editando usuário</h1>
+<div class="container">
+    <div class="d-flex align-items-center justify-content-between">
+        <h1 class="">Editando usuário</h1>
+    </div>
+</div>
+
+<hr>
 
 <div class="container align-items-center p-4 bg-body-secondary rounded col-4 justify-content-center">
     <form action="{{ route('user.update', ['user'=>$user]) }}" method="POST">

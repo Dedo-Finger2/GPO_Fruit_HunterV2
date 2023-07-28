@@ -25,7 +25,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
 // Usuário
 Route::get('/users', [UserController::class, 'index'])->name('user.index');
-Route::get('/register', [UserController::class, 'create'])->name('user.create');
+Route::get('/users/create', [UserController::class, 'create'])->name('user.create');
+Route::post('/users', [UserController::class, 'store'])->name('user.store');
 Route::get('/users/{user}/config', [UserController::class, 'config'])->name('user.config');
 
 // Autenticação

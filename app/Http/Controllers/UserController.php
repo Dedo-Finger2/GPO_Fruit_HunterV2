@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreUpdateUserFormRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -38,11 +40,14 @@ class UserController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Método responsável por persistir os dados do usuário no banco de dados
+     * @param StoreUpdateUserFormRequest $request - Requisições do usuário sendo validada porn ossa classe especial
      */
-    public function store(Request $request)
+    public function store(StoreUpdateUserFormRequest $request)
     {
-        //
+        User::create($request->validated());
+
+        return redirect()->route('user.index')->with('mensagem', 'Usuário criado com sucesso!');
     }
 
     /**

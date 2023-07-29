@@ -12,11 +12,20 @@
 <hr>
 
 <div class="container align-items-center p-4 bg-body-secondary rounded col-4 justify-content-center">
-    <form action="{{ route('users.update', ['user'=>$user]) }}" method="POST">
+    <form action="{{ route('users.update', ['user'=>$user]) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <h2 class="text-center">Edite suas creênciais</h2>
         <hr>
+        <div class="mb-3">
+            <label for="Image" class="form-label">Nova imagem</label>
+            <input type="file" class="form-control @error('image') is-invalid @enderror" id="Image" name="image">
+            @error('image')
+            <div class="invalid-feedback">
+                {{$message}}
+            </div>
+            @enderror
+        </div>
         <div class="mb-3">
             <label for="Name" class="form-label">Nome</label>
             <input type="text" class="form-control @error('name') is-invalid @enderror" value="{{ $user->name }}" id="Name" name="name" placeholder="Enter your name...">
@@ -36,27 +45,9 @@
             @enderror
         </div>
         <div class="mb-3">
-            <label for="EmailConfirm" class="form-label">Confirmar email</label>
-            <input type="text" class="form-control @error('emailConfirm') is-invalid @enderror" value="{{ $user->email }}" id="EmailConfirm" name="emailConfirm" placeholder="Confirm your email...">
-            @error('emailConfirm')
-            <div class="invalid-feedback">
-                {{$message}}
-            </div>
-            @enderror
-        </div>
-        <div class="mb-3">
             <label for="Password" class="form-label">Senha</label>
             <input type="text" class="form-control @error('password') is-invalid @enderror" id="Password" name="password" placeholder="Enter your password...">
             @error('password')
-            <div class="invalid-feedback">
-                {{$message}}
-            </div>
-            @enderror
-        </div>
-        <div class="mb-3">
-            <label for="PasswordConfirm" class="form-label">Confirmar senha</label>
-            <input type="text" class="form-control @error('passwordConfirm') is-invalid @enderror" id="PasswordConfirm" name="passwordConfirm" placeholder="Confirm your password...">
-            @error('passwordConfirm')
             <div class="invalid-feedback">
                 {{$message}}
             </div>

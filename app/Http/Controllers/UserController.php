@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreUpdateUserFormRequest;
+use App\Http\Requests\StoreUserFormRequest;
+use App\Http\Requests\UpdateUserFormRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -41,15 +42,15 @@ class UserController extends Controller
 
     /**
      * Método responsável por persistir os dados do usuário no banco de dados
-     * @param StoreUpdateUserFormRequest $request - Requisições do usuário sendo validada porn ossa classe especial
+     * @param StoreUserFormRequest $request - Requisições do usuário sendo validada porn ossa classe especial
      */
-    public function store(StoreUpdateUserFormRequest $request)
+    public function store(StoreUserFormRequest $request)
     {
         $data = $request->validated();
 
         if ($data['image']) {
             $requestImage = $request->image;
-            
+
             $extension = $requestImage->extension();
 
             $imageName = md5($requestImage->getClientOriginalName() . strtotime('now')) . "." . $extension;
@@ -85,9 +86,23 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(StoreUpdateUserFormRequest $request, User $user)
+    public function update(UpdateUserFormRequest $request, User $user)
     {
-        $updated = $user->update($request->validated());
+        $data = $request->validated();
+
+        if ($data['image']) {
+            $requestImage = $request->image;
+
+            $extension = $requestImage->extension();
+
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime('now')) . "." . $extension;
+
+            $requestImage->move(public_path('img/users'), $imageName);
+
+            $data['image'] = $imageName;
+        }
+
+        $updated = $user->update($data);
 
         if ($updated) {
             return redirect()->route('users.index')->with('mensagem', 'Usuário editado com sucesso!');

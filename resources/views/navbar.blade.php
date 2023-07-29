@@ -50,8 +50,8 @@
                         </a>
                         <ul class="dropdown-menu text-small ms-auto">
                             <li><a class="dropdown-item" href="#">New project...</a></li>
-                            <li><a class="dropdown-item" href="">Settings</a></li>
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li><a class="dropdown-item" href="{{ route('users.config', ['user'=>auth()->user()]) }}">Settings</a></li>
+                            <li><a class="dropdown-item" href="{{ route('users.show', ['user'=>auth()->user()]) }}">Profile</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>

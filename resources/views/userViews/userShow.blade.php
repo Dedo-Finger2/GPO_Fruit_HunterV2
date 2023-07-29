@@ -10,6 +10,9 @@
     <div class="container">
         <div class="row">
             <div class="col">
+                <img class="img-fluid" src="/img/users/{{ $user->image }}" alt="profilePicture">
+            </div>
+            <div class="col">
                 <div class="mb-3">
                     <label for="Name" class="form-label">Nome</label>
                     <input class="form-control" type="text" id="Name" disabled value="{{ $user->name }}">
@@ -18,9 +21,6 @@
                     <label for="Email" class="form-label">Email</label>
                     <input class="form-control" type="text" id="Email" disabled value="{{ $user->email }}">
                 </div>
-
-            </div>
-            <div class="col">
                 <div class="mb-3">
                     <label for="Created" class="form-label">Created_at</label>
                     <input class="form-control" type="text" id="Created" disabled value="{{ $user->created_at }}">
@@ -29,12 +29,12 @@
                     <label for="Updated" class="form-label">Updated_at</label>
                     <input class="form-control" type="text" id="Updated" disabled value="{{ $user->updated_at }}">
                 </div>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Deletar
+                </button>
             </div>
         </div>
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Deletar
-        </button>
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -45,7 +45,8 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        Aviso! Essa ação não poderá ser desfeita, gostaria mesmo de deletar o usuário <strong>{{ $user->name }}</strong> ?
+                        Aviso! Essa ação não poderá ser desfeita, gostaria mesmo de deletar o usuário
+                        <strong>{{ $user->name }}</strong> ?
                     </div>
                     <div class="modal-footer">
                         <form action="{{ route('users.destroy', ['user' => $user]) }}" method="post">

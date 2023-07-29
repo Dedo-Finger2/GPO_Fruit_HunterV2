@@ -7,10 +7,19 @@
 <hr>
 
 <div class="container align-items-center p-4 bg-body-secondary rounded col-4 justify-content-center">
-    <form action="{{ route('users.store') }}" method="POST">
+    <form action="{{ route('users.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <h2 class="text-center">Registre-se</h2>
         <hr>
+        <div class="mb-3">
+            <label for="Image" class="form-label">Imagem</label>
+            <input type="file" class="form-control @error('image') is-invalid @enderror" id="Image" name="image">
+            @error('image')
+            <div class="invalid-feedback">
+                {{$message}}
+            </div>
+            @enderror
+        </div>
         <div class="mb-3">
             <label for="Name" class="form-label">Nome</label>
             <input type="text" class="form-control @error('name') is-invalid @enderror" id="Name" name="name" placeholder="Enter your name...">

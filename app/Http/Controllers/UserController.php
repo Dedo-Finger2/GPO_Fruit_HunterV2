@@ -45,10 +45,26 @@ class UserController extends Controller
      */
     public function store(StoreUpdateUserFormRequest $request)
     {
-        User::create($request->validated());
+        $data = $request->validated();
+
+        if ($data['image']) {
+            $requestImage = $request->image;
+            
+            $extension = $requestImage->extension();
+
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime('now')) . "." . $extension;
+
+            $requestImage->move(public_path('img/users'), $imageName);
+
+            $data['image'] = $imageName;
+        }
+
+        User::create($data);
 
         return redirect()->route('users.index')->with('mensagem', 'Usuário criado com sucesso!');
     }
+
+
 
     /**
      * Display the specified resource.

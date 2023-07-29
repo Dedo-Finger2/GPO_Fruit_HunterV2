@@ -27,6 +27,7 @@ class StoreUpdateUserFormRequest extends FormRequest
             'emailConfirm' => 'same:email',
             'password' => 'required|min:6',
             'passwordConfirm' => 'same:password',
+            'image' => 'required'
         ];
     }
 
@@ -47,7 +48,10 @@ class StoreUpdateUserFormRequest extends FormRequest
             // Password
             'password.required' => 'O campo de senha é obrigatório.',
             'password.min' => 'Sua senha deve ter no mínimo :min caracteres.',
-            'passwordConfirm.same' => 'Os dois campos de senha devem ser iguais.'
+            'passwordConfirm.same' => 'Os dois campos de senha devem ser iguais.',
+
+            // Image
+            'image.required' => 'O arquivo precisa ser uma imagem.'
         ];
     }
 }

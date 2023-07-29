@@ -9,8 +9,8 @@
 
     <div class="container">
         <div class="row">
-            <div class="col">
-                <img class="img-fluid" src="/img/users/{{ $user->image }}" alt="profilePicture">
+            <div class="col text-center mb-5">
+                <img class="img-fluid rounded" src="/img/users/{{ $user->image }}" alt="profilePicture" width="450px" height="50px">
             </div>
             <div class="col">
                 <div class="mb-3">
@@ -30,9 +30,15 @@
                     <input class="form-control" type="text" id="Updated" disabled value="{{ $user->updated_at }}">
                 </div>
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Deletar
-                </button>
+                <div class="d-flex">
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Deletar
+                    </button>
+                    <form class="ms-auto" action="{{ route('users.edit', ['user' => $user]) }}" method="get">
+                        @csrf
+                        <button type="submit" class="btn btn-primary">Editar</button>
+                    </form>
+                </div>
             </div>
         </div>
 

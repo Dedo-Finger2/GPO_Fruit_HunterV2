@@ -29,9 +29,6 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
-Route::get('/users/{user}/config', [UserController::class, 'config'])->name('users.config')->middleware('auth');
-
-
 
 // Autenticação
 Route::get('/login', [LoginController::class, 'index'])->name('login');

@@ -90,7 +90,7 @@ class UserController extends Controller
     {
         $data = $request->validated();
 
-        if ($data['image']) {
+        if (isset($data['image'])) {
             $requestImage = $request->image;
 
             $extension = $requestImage->extension();

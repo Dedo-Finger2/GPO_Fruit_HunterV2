@@ -44,13 +44,12 @@
                     <div class="dropdown ms-auto">
                         <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32"
+                            <img src="/img/users/{{ auth()->user()->image }}" alt="mdo" width="32" height="32"
                                 class="rounded-circle">
                             {{ auth()->user()->name }}
                         </a>
                         <ul class="dropdown-menu text-small ms-auto">
                             <li><a class="dropdown-item" href="#">New project...</a></li>
-                            <li><a class="dropdown-item" href="{{ route('users.config', ['user'=>auth()->user()]) }}">Settings</a></li>
                             <li><a class="dropdown-item" href="{{ route('users.show', ['user'=>auth()->user()]) }}">Profile</a></li>
                             <li>
                                 <hr class="dropdown-divider">

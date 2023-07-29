@@ -1,9 +1,9 @@
 @extends('layouts.page')
-@section('title', 'Rarities')
+@section('title', 'RaritiesEdit')
 
 @section('content')
 
-<h1>Lista de raridades</h1>
+<h1>Editando raridade</h1>
 <hr>
 
 @endsection

@@ -44,6 +44,11 @@ Route::get('/fruits', [FruitController::class, 'index'])->name('fruits.index');
 
 // Raridade
 Route::get('/rarities', [RarityController::class, 'index'])->name('rarities.index');
+Route::get('/rarities/create', [RarityController::class, 'create'])->name('rarities.create');
+Route::post('/rarities', [RarityController::class, 'store'])->name('rarities.store');
+Route::get('/rarities/{rarity}/edit', [RarityController::class, 'edit'])->name('rarities.edit');
+Route::put('/rarities/{rarity}', [RarityController::class, 'update'])->name('rarities.update');
+Route::delete('/rarities/{rarity}', [RarityController::class, 'destroy'])->name('rarities.destroy');
 
 
 // Conta

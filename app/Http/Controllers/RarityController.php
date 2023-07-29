@@ -23,7 +23,7 @@ class RarityController extends Controller
      */
     public function create()
     {
-        //
+        return view('rarityViews.raritiesCreate');
     }
 
     /**
@@ -47,7 +47,7 @@ class RarityController extends Controller
      */
     public function edit(Rarity $rarity)
     {
-        //
+        return view('rarityViews.raritiesEdit');
     }
 
     /**
